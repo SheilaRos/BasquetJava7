@@ -2,6 +2,7 @@ package com.mycompany.dambasquet;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Basquet {
@@ -17,8 +18,7 @@ public class Basquet {
            String nombreE = "";
            String nombreJ ="";
            String nombreP = "";
-            int opcion=-1;
-		 
+            int opcion=-1; 
 		 do{
                     menu1();
                     opcion= EntradaDatos.pedirEntero("Escoge una opción");
@@ -37,7 +37,7 @@ public class Basquet {
                             switch(opcion2){
                                 case 1:
                                     nombreE= pedirCadenaNoVacia("Introduce el nombre de la localidad");
-                                    System.out.println(Consultas.buscarEquipoLocalidad(misEquipos.getListaEquipo(), nombreJ));
+                                    System.out.println(Consultas.buscarEquipoLocalidad(misEquipos.getListaEquipo(), nombreE));
                                 break;
                                 case 2:
                                     nombreE = pedirCadenaNoVacia("Introduce el nombre de equipo.");
@@ -54,7 +54,7 @@ public class Basquet {
                                 break;
                                 default: System.out.println("opción incorrecta.");
                             }
-                           }while(opcion2!=4);
+                           }while(opcion2!=1 || opcion2!=2 || opcion2!=3 || opcion2!=4);
 			break;
 			case 4:
                             int opcion3 = 0;
@@ -80,18 +80,18 @@ public class Basquet {
                                    System.out.println(Consultas.buscarJugadoresDeUnaPosicion(misEquipos.getListaEquipo(), nombreP));
                                 break;
                                 case 5:
-                                   LocalDate nacimiento = devolverLocalDate("Introduce la fecha.");
+                                   Date nacimiento = devolverDate("Introduce la fecha.");
                                    System.out.println(Consultas.buscarJugadoresNacimiento(misEquipos.getListaEquipo(), nacimiento));
                                 break;
                                 case 6:
-                                    
+                                    mostrarAVG(Consultas.avgMaxMinJugadoresPosicion(misEquipos.getListaEquipo()), 6);
                                 break;
                                 case 7:
                                     
                                 break;
                                 default: System.out.println("opción incorrecta.");
                             }
-                           }while(opcion3!=7);
+                           }while(opcion3!=1 || opcion3!=2 || opcion3!=3 || opcion3!=4 || opcion3!=5 || opcion3!=6 || opcion3!=7);
 			break;
 			case 5:
                             System.out.println("Hasta luego :D");
@@ -100,6 +100,22 @@ public class Basquet {
                     }
 		 }while(opcion!=5);
         
+    }
+    public static void mostrarAVG(List<Estadisticas> estadisticas, int numeroConsulta){
+        for(Estadisticas e: estadisticas){
+            System.out.println("Posicion: "+e.getPosicion());
+            System.out.println("AVG Canastas: "+e.getAvgCanastas());
+            System.out.println("AVG Asistencias: "+e.getAvgAsistencias());
+            System.out.println("AVG Rebotes: "+e.getAvgRebotes());
+            if(numeroConsulta == 7){
+                System.out.println("Máximo Canastas: "+e.getMaxCanastas());
+                System.out.println("Máximo Asistencias: "+e.getMaxAsistencias());
+                System.out.println("Máximo Rebotes: "+e.getMaxRebotes());
+                System.out.println("Mínimo Canastas: "+e.getMinCanastas());
+                System.out.println("Mínimo Asistencias: "+e.getMinAsistencias());
+                System.out.println("Mínimo Rebotes: "+e.getMinRebotes());
+            }
+        }
     }
     public static void menu1(){
         System.out.println("<~~ Menú ~~>");
@@ -130,18 +146,20 @@ public class Basquet {
         int id = pedirID("Introduce la id de equipo:", "equipo");
         String nombre = pedirCadenaNoVacia("Introduce el nombre del equipo:");
         String localidad = pedirCadenaNoVacia("Introduce la localidad del equipo:");
-        LocalDate creacion =  devolverLocalDate("Introduce la fecha de creación:");
+        Date creacion =  devolverDate("Introduce la fecha de creación:");
         System.out.println(creacion);
         Equipo e = new Equipo(id, nombre, localidad, creacion);
         misEquipos.altaEquipo(e);
         miFicheroEquipos.grabar(misEquipos);
         System.out.println("Equipo dado de alta.");
     }
-    public static LocalDate devolverLocalDate(String msg){
+    public static Date devolverDate(String msg){
+        System.out.println(msg);
         int dia = pedirFecha("Introduce el dia");
         int mes = pedirFecha("Introduce el mes");
         int anyo = pedirFecha("Introduce el año");
-        return LocalDate.of(anyo, mes, dia);
+        Date fecha = new Date (anyo, mes, dia);
+        return fecha;
     }
     public static int pedirFecha(String msg){
         int entero = 0;
@@ -172,8 +190,8 @@ public class Basquet {
             int id = pedirID("Introduce la id de jugador:", "jugador");
             String nombre = pedirCadenaNoVacia("Introduce tu nombre:");
             String posicion = pedirCadenaNoVacia("Introduce tu posición:");
-            LocalDate nacimiento =  devolverLocalDate("Introduce tu fecha de nacimiento:");
-            Jugador j = new Jugador(id, nombre, nacimiento, posicion);
+            Date nacimiento =  devolverDate("Introduce tu fecha de nacimiento:");
+            Jugador j = new Jugador(id, nombre, nacimiento,(int)(Math.random()*40) ,(int)(Math.random()*40) ,(int)(Math.random()*40) ,posicion);
             e.getListaJugadores().altaJugador(j);
             miFicheroEquipos.grabar(misEquipos);
             System.out.println("Jugador dado de alta.");

@@ -1,12 +1,12 @@
 package com.mycompany.dambasquet;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Jugador implements Serializable{
     private int id;
     private String nombre;
-    private LocalDate nacimiento;
+    private Date nacimiento;
     private int canastas;
     private int rebote;
     private int asistencias;
@@ -15,13 +15,13 @@ public class Jugador implements Serializable{
     public Jugador() {
     }
 
-    public Jugador(int numJugador, String nombre, LocalDate nacimiento, String posicion) {
+    public Jugador(int numJugador, String nombre, Date nacimiento, String posicion) {
         this.id = numJugador;
         this.nombre = nombre;
         this.nacimiento = nacimiento;
         this.posicion = posicion;
     }
-    public Jugador(int numJugador, String nombre, LocalDate nacimiento, int canastas, int rebote, int asistencias, String posicion) {
+    public Jugador(int numJugador, String nombre, Date nacimiento, int canastas, int rebote, int asistencias, String posicion) {
         this(numJugador, nombre, nacimiento, posicion);
         this.canastas = canastas;
         this.rebote = rebote;
@@ -61,10 +61,10 @@ public class Jugador implements Serializable{
     }
 
 
-    public LocalDate getNacimiento() {
+    public Date getNacimiento() {
         return nacimiento;
     }
-    public void setNacimiento(LocalDate nacimiento) {
+    public void setNacimiento(Date nacimiento) {
         this.nacimiento = nacimiento;
     }
 
