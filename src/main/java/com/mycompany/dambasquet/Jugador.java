@@ -1,9 +1,9 @@
 package com.mycompany.dambasquet;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Jugador {
-   
+public class Jugador implements Serializable{
     private int id;
     private String nombre;
     private LocalDate nacimiento;
@@ -11,19 +11,18 @@ public class Jugador {
     private int rebote;
     private int asistencias;
     private String posicion;
-    private static int contador = 0;
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, LocalDate nacimiento) {
-        contador++;
-        this.id = contador;
+    public Jugador(int numJugador, String nombre, LocalDate nacimiento, String posicion) {
+        this.id = numJugador;
         this.nombre = nombre;
         this.nacimiento = nacimiento;
+        this.posicion = posicion;
     }
-    public Jugador(String nombre, LocalDate nacimiento, int canastas, int rebote, int asistencias, String posicion) {
-        this(nombre, nacimiento);
+    public Jugador(int numJugador, String nombre, LocalDate nacimiento, int canastas, int rebote, int asistencias, String posicion) {
+        this(numJugador, nombre, nacimiento, posicion);
         this.canastas = canastas;
         this.rebote = rebote;
         this.asistencias = asistencias;
@@ -84,5 +83,8 @@ public class Jugador {
         return id;
     }
 
- 
+    @Override
+    public String toString() {
+        return "Jugador{" + "id=" + id + ", nombre=" + nombre + ", nacimiento=" + nacimiento + ", canastas=" + canastas + ", rebote=" + rebote + ", asistencias=" + asistencias + ", posicion=" + posicion + '}'+"\n";
+    }
 }

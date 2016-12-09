@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_101" class="java.beans.XMLDecoder">
+ <object class="com.mycompany.dambasquet.ListaEquipos" id="ListaEquipos0">
+  <void property="listaEquipo">
+   <void method="add">
+    <object class="com.mycompany.dambasquet.Equipo">
+     <void property="id">
+      <int>1</int>
+     </void>
+     <void property="listaJugadores">
+      <object class="com.mycompany.dambasquet.ListaJugadores"/>
+     </void>
+     <void property="localidad">
+      <string>Barcelona</string>
+     </void>
+     <void property="nombre">
+      <string>Los cascanueces</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.mycompany.dambasquet.Equipo">
+     <void property="id">
+      <int>2</int>
+     </void>
+     <void property="listaJugadores">
+      <object class="com.mycompany.dambasquet.ListaJugadores" id="ListaJugadores0">
+       <void property="listaJugadores">
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="id">
+           <int>1</int>
+          </void>
+          <void property="nombre">
+           <string>mimi</string>
+          </void>
+          <void property="posicion">
+           <string>base</string>
+          </void>
+         </object>
+        </void>
+       </void>
+      </object>
+     </void>
+     <void property="localidad">
+      <string>valencia</string>
+     </void>
+     <void property="nombre">
+      <string>chumachos</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
