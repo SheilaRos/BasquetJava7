@@ -13,7 +13,88 @@
       <int>1</int>
      </void>
      <void property="listaJugadores">
-      <object class="com.mycompany.dambasquet.ListaJugadores"/>
+      <object class="com.mycompany.dambasquet.ListaJugadores" id="ListaJugadores0">
+       <void property="listaJugadores">
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="asistencias">
+           <int>11</int>
+          </void>
+          <void property="canastas">
+           <int>39</int>
+          </void>
+          <void property="id">
+           <int>4</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>60953205600000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Rodolfo el bracilargo</string>
+          </void>
+          <void property="posicion">
+           <string>pivot</string>
+          </void>
+          <void property="rebote">
+           <int>22</int>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="canastas">
+           <int>33</int>
+          </void>
+          <void property="id">
+           <int>5</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>60795698400000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Fulgencio el de los codos</string>
+          </void>
+          <void property="posicion">
+           <string>base</string>
+          </void>
+          <void property="rebote">
+           <int>31</int>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="asistencias">
+           <int>10</int>
+          </void>
+          <void property="canastas">
+           <int>2</int>
+          </void>
+          <void property="id">
+           <int>6</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>60721916400000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Amancio el ciborg</string>
+          </void>
+          <void property="posicion">
+           <string>alero</string>
+          </void>
+          <void property="rebote">
+           <int>17</int>
+          </void>
+         </object>
+        </void>
+       </void>
+      </object>
      </void>
      <void property="localidad">
       <string>Barcelona</string>
@@ -34,7 +115,7 @@
       <int>2</int>
      </void>
      <void property="listaJugadores">
-      <object class="com.mycompany.dambasquet.ListaJugadores" id="ListaJugadores0">
+      <object class="com.mycompany.dambasquet.ListaJugadores" id="ListaJugadores1">
        <void property="listaJugadores">
         <void method="add">
          <object class="com.mycompany.dambasquet.Jugador">
@@ -90,6 +171,33 @@
           </void>
          </object>
         </void>
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="asistencias">
+           <int>17</int>
+          </void>
+          <void property="canastas">
+           <int>14</int>
+          </void>
+          <void property="id">
+           <int>3</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>56240866800000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Johnny sin piernas</string>
+          </void>
+          <void property="posicion">
+           <string>pivot</string>
+          </void>
+          <void property="rebote">
+           <int>33</int>
+          </void>
+         </object>
+        </void>
        </void>
       </object>
      </void>
@@ -112,13 +220,118 @@
       <int>3</int>
      </void>
      <void property="listaJugadores">
-      <object class="com.mycompany.dambasquet.ListaJugadores"/>
+      <object class="com.mycompany.dambasquet.ListaJugadores" id="ListaJugadores2">
+       <void property="listaJugadores">
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="asistencias">
+           <int>22</int>
+          </void>
+          <void property="canastas">
+           <int>23</int>
+          </void>
+          <void property="id">
+           <int>7</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>60801314400000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Manrriki</string>
+          </void>
+          <void property="posicion">
+           <string>alero</string>
+          </void>
+          <void property="rebote">
+           <int>9</int>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="asistencias">
+           <int>8</int>
+          </void>
+          <void property="canastas">
+           <int>20</int>
+          </void>
+          <void property="id">
+           <int>8</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>60743948400000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Bimu</string>
+          </void>
+          <void property="posicion">
+           <string>base</string>
+          </void>
+          <void property="rebote">
+           <int>14</int>
+          </void>
+         </object>
+        </void>
+        <void method="add">
+         <object class="com.mycompany.dambasquet.Jugador">
+          <void property="asistencias">
+           <int>23</int>
+          </void>
+          <void property="canastas">
+           <int>18</int>
+          </void>
+          <void property="id">
+           <int>9</int>
+          </void>
+          <void property="nacimiento">
+           <object class="java.util.Date">
+            <long>60698239200000</long>
+           </object>
+          </void>
+          <void property="nombre">
+           <string>Yuna</string>
+          </void>
+          <void property="posicion">
+           <string>pivot</string>
+          </void>
+          <void property="rebote">
+           <int>16</int>
+          </void>
+         </object>
+        </void>
+       </void>
+      </object>
      </void>
      <void property="localidad">
       <string>Hospitalet</string>
      </void>
      <void property="nombre">
       <string>Los Gordos</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="com.mycompany.dambasquet.Equipo">
+     <void property="creacion">
+      <object class="java.util.Date">
+       <long>-2209078800000</long>
+      </object>
+     </void>
+     <void property="id">
+      <int>4</int>
+     </void>
+     <void property="listaJugadores">
+      <object class="com.mycompany.dambasquet.ListaJugadores"/>
+     </void>
+     <void property="localidad">
+      <string>11</string>
+     </void>
+     <void property="nombre">
+      <string>dsfdfsd</string>
      </void>
     </object>
    </void>

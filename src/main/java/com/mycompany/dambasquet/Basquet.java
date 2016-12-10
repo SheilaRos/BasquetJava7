@@ -37,24 +37,28 @@ public class Basquet {
                             switch(opcion2){
                                 case 1:
                                     nombreE= pedirCadenaNoVacia("Introduce el nombre de la localidad");
-                                    System.out.println(Consultas.buscarEquipoLocalidad(misEquipos.getListaEquipo(), nombreE));
+                                    List<Equipo> localidad = Consultas.buscarEquipoLocalidad(misEquipos.getListaEquipo(), nombreE);
+                                    siNoHayConsultaEquipo(localidad);
                                 break;
                                 case 2:
                                     nombreE = pedirCadenaNoVacia("Introduce el nombre de equipo.");
-                                    System.out.println(Consultas.buscarJugadoresDeUnEquipo(misEquipos.getListaEquipo(), nombreE));
+                                    List<Jugador> jdeEquipo = Consultas.buscarJugadoresDeUnEquipo(misEquipos.getListaEquipo(), nombreE);
+                                    siNoHayConsultaJugador(jdeEquipo);
                                 break;
                                 case 3:
                                     nombreE = pedirCadenaNoVacia("Introduce el nombre de equipo.");
                                     nombreP = pedirCadenaNoVacia("Introduce el nombre de la posicion.");
-                                    System.out.println(Consultas.buscarJugadoresDeUnEquipoYPosicion(misEquipos.getListaEquipo(), nombreE, nombreP));
+                                    List<Jugador> jdeEyP = Consultas.buscarJugadoresDeUnEquipoYPosicion(misEquipos.getListaEquipo(), nombreE, nombreP);
+                                    siNoHayConsultaJugador(jdeEyP);
                                 break;
                                 case 4:
                                     nombreE = pedirCadenaNoVacia("Introduce el nombre del equipo.");
-                                    System.out.println(Consultas.buscarJugadoresMaxCanastasEquipo(misEquipos.getListaEquipo(), nombreE));
+                                    List<Jugador> jMaxCanastas= Consultas.buscarJugadoresMaxCanastasEquipo(misEquipos.getListaEquipo(), nombreE);
+                                    siNoHayConsultaJugador(jMaxCanastas);
                                 break;
                                 default: System.out.println("opción incorrecta.");
                             }
-                           }while(opcion2!=1 || opcion2!=2 || opcion2!=3 || opcion2!=4);
+                           }while(opcion2!=1 && opcion2!=2 && opcion2!=3 && opcion2!=4);
 			break;
 			case 4:
                             int opcion3 = 0;
@@ -64,34 +68,41 @@ public class Basquet {
                             switch(opcion3){
                                 case 1:
                                    nombreJ = pedirCadenaNoVacia("Introduce el nombre del jugador que quieres buscar.");
-                                   System.out.println(Consultas.buscarJugadoresPorNombre(misEquipos.getListaEquipo(), nombreJ));
+                                   List<Jugador> jNombre = Consultas.buscarJugadoresPorNombre(misEquipos.getListaEquipo(), nombreJ);
+                                    siNoHayConsultaJugador(jNombre);
                                 break;
                                 case 2:
                                    int canastas = EntradaDatos.pedirEntero("Introduce el número de canastas mínimas:");
-                                   System.out.println(Consultas.buscarJugadoresPorCanastas(misEquipos.getListaEquipo(), canastas));
+                                   List<Jugador> jCanastas = Consultas.buscarJugadoresPorCanastas(misEquipos.getListaEquipo(), canastas);
+                                    siNoHayConsultaJugador(jCanastas);
                                 break;
                                 case 3:
                                     int asisMin = EntradaDatos.pedirEntero("Introduce el número de asistencias mínimas:");
                                     int asisMax = EntradaDatos.pedirEntero("Introduce el número de asistencias máximas:");
-                                   System.out.println(Consultas.buscarJugadoresEntreAsistencias(misEquipos.getListaEquipo(), asisMin, asisMax));
+                                    List<Jugador> jAsistencias = Consultas.buscarJugadoresEntreAsistencias(misEquipos.getListaEquipo(), asisMin, asisMax);
+                                    siNoHayConsultaJugador(jAsistencias);
                                 break;
                                 case 4:
                                    nombreP = pedirCadenaNoVacia("Introduce la posición.");
-                                   System.out.println(Consultas.buscarJugadoresDeUnaPosicion(misEquipos.getListaEquipo(), nombreP));
+                                   List<Jugador> jPosicion = Consultas.buscarJugadoresDeUnaPosicion(misEquipos.getListaEquipo(), nombreP);
+                                    siNoHayConsultaJugador(jPosicion);
                                 break;
                                 case 5:
                                    Date nacimiento = devolverDate("Introduce la fecha.");
-                                   System.out.println(Consultas.buscarJugadoresNacimiento(misEquipos.getListaEquipo(), nacimiento));
+                                   List<Jugador> jNacimiento = Consultas.buscarJugadoresNacimiento(misEquipos.getListaEquipo(), nacimiento);
+                                    siNoHayConsultaJugador(jNacimiento);
                                 break;
                                 case 6:
-                                    mostrarAVG(Consultas.avgMaxMinJugadoresPosicion(misEquipos.getListaEquipo()), 6);
+                                    List<Estadisticas> estadisticas = Consultas.avgMaxMinJugadoresPosicion(misEquipos.getListaEquipo());
+                                    mostrarAVG(estadisticas, 6);
                                 break;
                                 case 7:
-                                    
+                                    List<Estadisticas> estadisticasCompletas = Consultas.avgMaxMinJugadoresPosicion(misEquipos.getListaEquipo());
+                                    mostrarAVG(estadisticasCompletas, 7);
                                 break;
                                 default: System.out.println("opción incorrecta.");
                             }
-                           }while(opcion3!=1 || opcion3!=2 || opcion3!=3 || opcion3!=4 || opcion3!=5 || opcion3!=6 || opcion3!=7);
+                           }while(opcion3!=1 && opcion3!=2 && opcion3!=3 && opcion3!=4 && opcion3!=5 && opcion3!=6 && opcion3!=7);
 			break;
 			case 5:
                             System.out.println("Hasta luego :D");
@@ -101,19 +112,37 @@ public class Basquet {
 		 }while(opcion!=5);
         
     }
+    public static void siNoHayConsultaEquipo(List<Equipo> equipo){
+        if(equipo.size()==0){
+            System.out.println("No hay datos que concuerden con lo que se pide en la consulta");
+        }else{
+            System.out.println(equipo);
+        }
+    }
+    public static void siNoHayConsultaJugador(List<Jugador> jugador){
+        if(jugador.size()==0){
+            System.out.println("No hay datos que concuerden con lo que se pide en la consulta");
+        }else{
+            System.err.println(jugador);
+        }
+    }
     public static void mostrarAVG(List<Estadisticas> estadisticas, int numeroConsulta){
-        for(Estadisticas e: estadisticas){
-            System.out.println("Posicion: "+e.getPosicion());
-            System.out.println("AVG Canastas: "+e.getAvgCanastas());
-            System.out.println("AVG Asistencias: "+e.getAvgAsistencias());
-            System.out.println("AVG Rebotes: "+e.getAvgRebotes());
-            if(numeroConsulta == 7){
-                System.out.println("Máximo Canastas: "+e.getMaxCanastas());
-                System.out.println("Máximo Asistencias: "+e.getMaxAsistencias());
-                System.out.println("Máximo Rebotes: "+e.getMaxRebotes());
-                System.out.println("Mínimo Canastas: "+e.getMinCanastas());
-                System.out.println("Mínimo Asistencias: "+e.getMinAsistencias());
-                System.out.println("Mínimo Rebotes: "+e.getMinRebotes());
+        if(estadisticas.size()==0){
+           System.out.println("No hay datos para está consulta."); 
+        }else{
+            for(Estadisticas e: estadisticas){
+                System.out.println("Posicion: "+e.getPosicion());
+                System.out.println("AVG Canastas: "+e.getAvgCanastas());
+                System.out.println("AVG Asistencias: "+e.getAvgAsistencias());
+                System.out.println("AVG Rebotes: "+e.getAvgRebotes());
+                if(numeroConsulta == 7){
+                    System.out.println("Máximo Canastas: "+e.getMaxCanastas());
+                    System.out.println("Máximo Asistencias: "+e.getMaxAsistencias());
+                    System.out.println("Máximo Rebotes: "+e.getMaxRebotes());
+                    System.out.println("Mínimo Canastas: "+e.getMinCanastas());
+                    System.out.println("Mínimo Asistencias: "+e.getMinAsistencias());
+                    System.out.println("Mínimo Rebotes: "+e.getMinRebotes());
+                }
             }
         }
     }
@@ -128,8 +157,8 @@ public class Basquet {
     public static void menu2(){
         System.out.println("<~~ Menú Consultas de Equipo ~~>");
         System.out.println("[1]~ Consultar los equipos que hay en una localidad determinada.");
-        System.out.println("[2]~ Devolver todos los jugadores de un equipo a partir del nombre del equipo.");
-        System.out.println("[3]~ Devolver todos los jugadores de un equipo, a partir del nombre de este, que jueguen en la misma posición.");
+        System.out.println("[2]~ Devolver todos los jugadores de un equipo determinado.");
+        System.out.println("[3]~ Devolver todos los jugadores de un equipo determinado que jueguen en la misma posición.");
         System.out.println("[4]~ Devuelve el jugador que más canastas ha realizado de un equipo determinado.");
     }
     public static void menu3(){
@@ -166,17 +195,17 @@ public class Basquet {
         if(msg.contains("dia")){
            do{
                entero = EntradaDatos.pedirEntero(msg);
-           }while(entero<0 || entero>31);
+           }while(entero<=0 || entero>31);
            
         }else if(msg.contains("mes")){
              do{
                entero = EntradaDatos.pedirEntero(msg);
-           }while(entero<0 || entero>12);
+           }while(entero<=0 || entero>12);
             
         }else if(msg.contains("año")){
              do{
                entero = EntradaDatos.pedirEntero(msg);
-           }while(entero<0);
+           }while(entero<=0);
             
         }
         return entero;
@@ -208,12 +237,14 @@ public class Basquet {
             if(tipo.equalsIgnoreCase("jugador")){
                 if(comprobarIDJugador(entero)){
                     System.out.println("Ya existe un jugador con está id, introduce otro id.");
+                    salir=false;
                 }else{
                     salir=true;
                 }
             }else{
                 if(comprobarIDEquipo(entero)){
                     System.out.println("Ya existe un equipo con está id, introduce otro id.");
+                    salir=false;
                 }else{
                     salir=true;
                 }
@@ -224,7 +255,11 @@ public class Basquet {
     public static Boolean comprobarIDJugador(int num){
         Jugador j = null;
         for (Equipo e : misEquipos.getListaEquipo()) {
-            j = e.getListaJugadores().obtenerJugadorId(num);
+           for(Jugador jugador : e.getListaJugadores().getListaJugadores()){
+               if(jugador.getId()==num){
+                   j=jugador;
+               }
+           }
         }
         if(j==null){
             return false;
